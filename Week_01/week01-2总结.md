@@ -60,8 +60,7 @@
 >Java8 启动，要加命令远程jmx才能连 ：java -Djava.rmi.server.hostname=114.67.171.251  -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8777 -Dcom.sun.management.jmxremote.rmi.port=8777 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false
 
 - jcmd命令
-
-  ![](资源\jcmd.jpg)
+<img src="资源/jcmd.jpg" style="zoom:50%;" />
 
 > 最大的young区是整个堆内存的1/3
 > NewRatio=2 表示old区和young区为2:1
