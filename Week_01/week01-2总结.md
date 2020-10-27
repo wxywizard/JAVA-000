@@ -59,6 +59,10 @@
 
 >Java8 启动，要加命令远程jmx才能连 ：java -Djava.rmi.server.hostname=114.67.171.251  -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8777 -Dcom.sun.management.jmxremote.rmi.port=8777 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false
 
+- jstat -gc pid 1000 1000  u结尾使用量 c 结尾总容量
+- jstat -gcutil pid 1000 100 使用量
+> eden区满了 发生YGC old 区满了发生 FGC
+
 - jcmd命令
 <img src="资源/jcmd.jpg" style="zoom:50%;" />
 
@@ -66,3 +70,9 @@
 > NewRatio=2 表示old区和young区为2:1
 > MBean相当于一个远程rpc调用的接口列表
 - GC的背景与一般原理
+
+> 内存空间是有限的，需要共享使用，java代码内部是不会主动释放内存的，所以需要内部的一个东西去申请内存，管理内存，最后释放内存，保证内存一直有的用
+
+> 最简单的内存管理方式，引用计数，如果一个对象的引用计数是0了，以后永远也不会再变成1了，因为一个对象引用计数变成0了说明它和其它对象相互之间连接没有了，它不可见了，自然也就没法再把它连接
+
+>  
