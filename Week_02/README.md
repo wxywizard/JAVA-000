@@ -8,6 +8,8 @@
 
 [wrk压测分析结果](wrk压测分析结果.md)
 
+exercise为okhttp客户端
+
 ### 总结与收集归纳
 
 [week02-1总结](week02-1总结.md)
