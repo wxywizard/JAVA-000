@@ -50,3 +50,33 @@
 1、访问并发数控制
 2、单位时间调用次数或数据量控制
 3、关键节点并发处理线程数控制
+
+- next
+
+> 英文好的同学看下这两个文档
+> https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/g1_gc.html#allocation_evacuation_failure
+> https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/g1_gc_tuning.html
+>
+> G1是为了大堆设计的，小堆跑起来优势不明显，至少需要 6GB
+> 默认的并行回收线程数ParallelGCThreads 在 8核及以下机器是CPU数目，超过是 5/8，
+> 并发标记线程数ConcGCThreads 是 ParallelGCThreads的 1/4
+
+- next
+
+<img src="资源\微信图片_20201029180812.png" alt="微信图片_20201029180812" style="zoom:50%;" />
+
+> 这个图可以加深理解
+>
+> 很正常呀，ccs区的数据是开启压缩指针后，从原来的meta区挪过来的
+>
+> 单独划分了一个池子，但内存管理器都是同一个
+>
+> 也就是说，如果不开启压缩指针（默认小于32g内存都开启），就没这个区，本来这个区的数据就放到了meta区
+>
+> jvisualvm.exe -J-XX:+UseG1GC -J-XX:-UseCompressedOops
+
+<img src="资源\微信图片_20201029180844.png" alt="微信图片_20201029180844" style="zoom:50%;" />
+
+> 果然没了
+>
+> 各位同学有兴趣可以自己试验一番。
