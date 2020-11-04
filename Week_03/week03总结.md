@@ -21,3 +21,7 @@
 
 <img src="资源/Xnip2020-11-04_00-12-15.jpg" alt="Xnip2020-11-04_00-12-15" style="zoom:50%;" />
 
+- Thread的状态改变操作
+
+  <img src="资源/Xnip2020-11-05_00-08-52.jpg" style="zoom:50%;" />
+
